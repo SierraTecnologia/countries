@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Country\Providers;
+namespace Country\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;

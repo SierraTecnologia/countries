@@ -1,17 +1,17 @@
-# Rinvex Country
+# SierraTecnologia Country
 
-**Rinvex Country** is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.
+**SierraTecnologia Country** is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.
 
-[![Packagist](https://img.shields.io/packagist/v/rinvex/countries.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/countries)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/countries.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/countries/)
-[![Travis](https://img.shields.io/travis/rinvex/countries.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/rinvex/countries)
+[![Packagist](https://img.shields.io/packagist/v/sierratecnologia/countries.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/sierratecnologia/countries)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sierratecnologia/countries.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/sierratecnologia/countries/)
+[![Travis](https://img.shields.io/travis/sierratecnologia/countries.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/sierratecnologia/countries)
 [![StyleCI](https://styleci.io/repos/66037019/shield)](https://styleci.io/repos/66037019)
-[![License](https://img.shields.io/packagist/l/rinvex/countries.svg?label=License&style=flat-square)](https://github.com/rinvex/countries/blob/develop/LICENSE)
+[![License](https://img.shields.io/packagist/l/sierratecnologia/countries.svg?label=License&style=flat-square)](https://github.com/sierratecnologia/countries/blob/develop/LICENSE)
 
 
 ## Usage
 
-Install via `composer require rinvex/countries`, then use intuitively:
+Install via `composer require sierratecnologia/countries`, then use intuitively:
 
 ```php
 // Get single country
@@ -34,7 +34,7 @@ echo $egypt->getEmoji();                            echo $egypt->getFlag();
 
 
 // Get all countries                                // Get countries with where condition (continent: Oceania)
-$countries = countries();                           $whereCountries = \Rinvex\Country\CountryLoader::where('geo.continent', ['OC' => 'Oceania']);
+$countries = countries();                           $whereCountries = \Country\CountryLoader::where('geo.continent', ['OC' => 'Oceania']);
 ```
 
 > **Note:** This package is framework-agnostic, so it's compatible with any PHP framework whatsoever without any dependencies at all, except for the PHP version itself **^7.0**. Awesome, huh? :smiley:
@@ -50,7 +50,7 @@ $countries = countries();                           $whereCountries = \Rinvex\Co
 - [Support](#support)
 - [Contributing & Protocols](#contributing--protocols)
 - [Security Vulnerabilities](#security-vulnerabilities)
-- [About Rinvex](#about-rinvex)
+- [About SierraTecnologia](#about-sierratecnologia)
 - [License](#license)
 
 
@@ -304,9 +304,9 @@ Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
 The following support channels are available at your fingertips:
 
-- [Chat on Slack](https://bit.ly/rinvex-slack)
-- [Help on Email](mailto:help@rinvex.com)
-- [Follow on Twitter](https://twitter.com/rinvex)
+- [Chat on Slack](https://bit.ly/sierratecnologia-slack)
+- [Help on Email](mailto:help@sierratecnologia.com)
+- [Follow on Twitter](https://twitter.com/sierratecnologia)
 
 
 ## Contributing & Protocols
@@ -324,16 +324,16 @@ Bug reports, feature requests, and pull requests are very welcome.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within this project, please send an e-mail to [help@rinvex.com](help@rinvex.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this project, please send an e-mail to [help@sierratecnologia.com](help@sierratecnologia.com). All security vulnerabilities will be promptly addressed.
 
 
-## About Rinvex
+## About SierraTecnologia
 
-Rinvex is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
+SierraTecnologia is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
 
 
 ## License
 
 This software is released under [The MIT License (MIT)](LICENSE).
 
-(c) 2016-2020 Rinvex LLC, Some rights reserved.
+(c) 2016-2020 SierraTecnologia LLC, Some rights reserved.

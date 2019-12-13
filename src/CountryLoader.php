@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Country;
+namespace Country;
 
 use Closure;
 
@@ -21,7 +21,7 @@ class CountryLoader
      * @param string $code
      * @param bool   $hydrate
      *
-     * @return \Rinvex\Country\Country|array
+     * @return \Country\Country|array
      */
     public static function country($code, $hydrate = true)
     {
@@ -227,7 +227,7 @@ class CountryLoader
      *
      * @param string $filePath
      *
-     * @throws \Rinvex\Country\CountryLoaderException
+     * @throws \Country\CountryLoaderException
      *
      * @return string
      */

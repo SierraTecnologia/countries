@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Country\Tests\Unit;
+namespace Country\Tests\Unit;
 
 use ReflectionClass;
-use Rinvex\Country\Country;
+use Country\Country;
 use PHPUnit\Framework\TestCase;
-use Rinvex\Country\CountryLoader;
-use Rinvex\Country\CountryLoaderException;
+use Country\CountryLoader;
+use Country\CountryLoaderException;
 
 class CountryLoaderTest extends TestCase
 {

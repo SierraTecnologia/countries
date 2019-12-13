@@ -1,4 +1,4 @@
-# Rinvex Countries Change Log
+# SierraTecnologia Countries Change Log
 
 All notable changes to this project will be documented in this file.
 
@@ -29,7 +29,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 ## [v5.0.0] - 2018-10-01
 - Enforce Consistency
-- Rename package to rinvex/countries
+- Rename package to sierratecnologia/countries
 
 ## [v4.0.0] - 2018-09-22
 - Simplify code by using PHP7 null coalescing operator
@@ -102,13 +102,13 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v1.0.0 - 2016-08-20
 - Tag first release.
 
-[v6.1.1]: https://github.com/rinvex/countries/compare/v6.1.0...v6.1.1
-[v6.1.0]: https://github.com/rinvex/countries/compare/v6.0.0...v6.1.0
-[v6.0.0]: https://github.com/rinvex/countries/compare/v5.0.2...v6.0.0
-[v5.0.2]: https://github.com/rinvex/countries/compare/v5.0.1...v5.0.2
-[v5.0.1]: https://github.com/rinvex/countries/compare/v5.0.0...v5.0.1
-[v5.0.0]: https://github.com/rinvex/countries/compare/v4.0.0...v5.0.0
-[v4.0.0]: https://github.com/rinvex/countries/compare/v3.1.0...v4.0.0
-[v3.1.0]: https://github.com/rinvex/countries/compare/v3.0.0...v3.1.0
-[v3.0.0]: https://github.com/rinvex/countries/compare/v2.0.0...v3.0.0
-[v2.0.0]: https://github.com/rinvex/countries/compare/v1.0.0...v2.0.0
+[v6.1.1]: https://github.com/sierratecnologia/countries/compare/v6.1.0...v6.1.1
+[v6.1.0]: https://github.com/sierratecnologia/countries/compare/v6.0.0...v6.1.0
+[v6.0.0]: https://github.com/sierratecnologia/countries/compare/v5.0.2...v6.0.0
+[v5.0.2]: https://github.com/sierratecnologia/countries/compare/v5.0.1...v5.0.2
+[v5.0.1]: https://github.com/sierratecnologia/countries/compare/v5.0.0...v5.0.1
+[v5.0.0]: https://github.com/sierratecnologia/countries/compare/v4.0.0...v5.0.0
+[v4.0.0]: https://github.com/sierratecnologia/countries/compare/v3.1.0...v4.0.0
+[v3.1.0]: https://github.com/sierratecnologia/countries/compare/v3.0.0...v3.1.0
+[v3.0.0]: https://github.com/sierratecnologia/countries/compare/v2.0.0...v3.0.0
+[v2.0.0]: https://github.com/sierratecnologia/countries/compare/v1.0.0...v2.0.0

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Country\Tests\Unit;
+namespace Country\Tests\Unit;
 
 use Exception;
-use Rinvex\Country\Country;
+use Country\Country;
 use PHPUnit\Framework\TestCase;
 
 class CountryTest extends TestCase
@@ -16,10 +16,10 @@ class CountryTest extends TestCase
     /** @var array */
     protected $longAttributes;
 
-    /** @var \Rinvex\Country\Country */
+    /** @var \Country\Country */
     protected $shortCountry;
 
-    /** @var \Rinvex\Country\Country */
+    /** @var \Country\Country */
     protected $longCountry;
 
     protected function setUp(): void

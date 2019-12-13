@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Country\Tests\Unit;
+namespace Country\Tests\Unit;
 
-use Rinvex\Country\Country;
+use Country\Country;
 use PHPUnit\Framework\TestCase;
 
 class HelpersTest extends TestCase

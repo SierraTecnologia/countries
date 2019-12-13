@@ -1,10 +1,10 @@
 {
-    "name": "rinvex/countries",
-    "description": "Rinvex Countries is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.",
+    "name": "sierratecnologia/countries",
+    "description": "SierraTecnologia Countries is a simple and lightweight package for retrieving country details with flexibility. A whole bunch of data including name, demonym, capital, iso codes, dialling codes, geo data, currencies, flags, emoji, and other attributes for all 250 countries worldwide at your fingertips.",
     "type": "library",
     "keywords": [
         "flags",
-        "rinvex",
+        "sierratecnologia",
         "country",
         "flexible",
         "countries",
@@ -18,18 +18,18 @@
         "svg"
     ],
     "license": "MIT",
-    "homepage": "https://rinvex.com",
+    "homepage": "https://sierratecnologia.com",
     "support": {
-        "email": "help@rinvex.com",
-        "issues": "https://github.com/rinvex/countries/issues",
-        "source": "https://github.com/rinvex/countries",
-        "docs": "https://github.com/rinvex/countries/blob/master/README.md"
+        "email": "help@sierratecnologia.com",
+        "issues": "https://github.com/sierratecnologia/countries/issues",
+        "source": "https://github.com/sierratecnologia/countries",
+        "docs": "https://github.com/sierratecnologia/countries/blob/master/README.md"
     },
     "authors": [
         {
-            "name": "Rinvex LLC",
-            "homepage": "https://rinvex.com",
-            "email": "help@rinvex.com"
+            "name": "SierraTecnologia LLC",
+            "homepage": "https://sierratecnologia.com",
+            "email": "help@sierratecnologia.com"
         },
         {
             "name": "Abdelrahman Omran",
@@ -39,7 +39,7 @@
         },
         {
             "name": "The Generous PHP Community",
-            "homepage": "https://github.com/rinvex/countries/contributors"
+            "homepage": "https://github.com/sierratecnologia/countries/contributors"
         }
     ],
     "require": {
@@ -55,12 +55,12 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "Rinvex\\Country\\": "src/"
+            "Country\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rinvex\\Country\\Tests\\": "tests"
+            "Country\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -74,7 +74,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rinvex\\Country\\Providers\\CountryServiceProvider"
+                "Country\\Providers\\CountryServiceProvider"
             ]
         }
     },

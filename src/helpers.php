@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Rinvex\Country\CountryLoader;
+use Country\CountryLoader;
 
 if (! function_exists('country')) {
     /**
@@ -11,7 +11,7 @@ if (! function_exists('country')) {
      * @param string $code
      * @param bool   $hydrate
      *
-     * @return \Rinvex\Country\Country|array
+     * @return \Country\Country|array
      */
     function country($code, $hydrate = true)
     {
