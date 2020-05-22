@@ -30,7 +30,8 @@ class Country
         // Check required mandatory attributes
         if (empty($this->getName()) || empty($this->getOfficialName())
             || empty($this->getNativeName()) || empty($this->getNativeOfficialName())
-            || empty($this->getIsoAlpha2()) || empty($this->getIsoAlpha3())) {
+            || empty($this->getIsoAlpha2()) || empty($this->getIsoAlpha3())
+        ) {
             throw new Exception('Missing mandatory country attributes!');
         }
     }

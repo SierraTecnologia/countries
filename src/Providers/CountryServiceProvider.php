@@ -15,8 +15,10 @@ class CountryServiceProvider extends ServiceProvider
     public function boot()
     {
         // Add country validation rule
-        Validator::extend('country', function ($attribute, $value) {
-            return array_key_exists(mb_strtolower($value), countries());
-        }, 'Country MUST be valid!');
+        Validator::extend(
+            'country', function ($attribute, $value) {
+                return array_key_exists(mb_strtolower($value), countries());
+            }, 'Country MUST be valid!'
+        );
     }
 }
