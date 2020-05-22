@@ -9,7 +9,9 @@ use PHPUnit\Framework\TestCase;
 
 class HelpersTest extends TestCase
 {
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_country_data()
     {
         $egypt = [
@@ -114,7 +116,9 @@ class HelpersTest extends TestCase
         $this->assertEquals(new Country($egypt), country('eg'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_country_array_shortlist()
     {
         $this->assertEquals(250, count(countries()));

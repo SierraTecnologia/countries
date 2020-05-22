@@ -10,16 +10,24 @@ use PHPUnit\Framework\TestCase;
 
 class CountryTest extends TestCase
 {
-    /** @var array */
+    /**
+     * @var array 
+     */
     protected $shortAttributes;
 
-    /** @var array */
+    /**
+     * @var array 
+     */
     protected $longAttributes;
 
-    /** @var \Country\Country */
+    /**
+     * @var \Country\Country 
+     */
     protected $shortCountry;
 
-    /** @var \Country\Country */
+    /**
+     * @var \Country\Country 
+     */
     protected $longCountry;
 
     protected function setUp(): void
@@ -160,7 +168,9 @@ class CountryTest extends TestCase
         $this->longCountry = new Country($this->longAttributes);
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_throws_an_exception_when_missing_mandatory_attributes()
     {
         $this->expectException(Exception::class);
@@ -168,7 +178,9 @@ class CountryTest extends TestCase
         new Country([]);
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_sets_attributes_once_instantiated()
     {
         $this->assertEquals($this->shortAttributes['name'], $this->shortCountry->getName());
@@ -179,13 +191,17 @@ class CountryTest extends TestCase
         $this->assertEquals('EGY', $this->shortCountry->getIsoAlpha3());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_gets_attributes()
     {
         $this->assertEquals($this->shortAttributes, $this->shortCountry->getAttributes());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_sets_attributes()
     {
         $this->shortCountry->setAttributes(['capital' => 'Cairo']);
@@ -193,26 +209,34 @@ class CountryTest extends TestCase
         $this->assertEquals('Cairo', $this->shortCountry->getCapital());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_gets_dotted_attribute()
     {
         $this->assertEquals($this->shortAttributes['calling_code'], $this->shortCountry->get('calling_code'));
         $this->assertEquals($this->longAttributes['name']['native']['ara']['common'], $this->longCountry->get('name.native.ara.common'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_gets_default_when_missing_value()
     {
         $this->assertEquals('default', $this->shortCountry->get('unknown', 'default'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_gets_all_attributes_when_missing_key()
     {
         $this->assertEquals($this->shortAttributes, $this->shortCountry->get(null));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_sets_attribute()
     {
         $this->shortCountry->set('capital', 'Cairo');
@@ -220,25 +244,33 @@ class CountryTest extends TestCase
         $this->assertEquals('Cairo', $this->shortCountry->getCapital());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function its_fluently_chainable_when_sets_attributes()
     {
         $this->assertEquals($this->shortCountry, $this->shortCountry->setAttributes([]));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_name_from_longlist()
     {
         $this->assertEquals($this->longAttributes['name']['common'], $this->longCountry->getName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_name_from_shortlist()
     {
         $this->assertEquals($this->shortAttributes['name'], $this->shortCountry->getName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_name()
     {
         $this->shortCountry->setAttributes([]);
@@ -246,19 +278,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->shortCountry->getName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_official_name_from_longlist()
     {
         $this->assertEquals($this->longAttributes['name']['official'], $this->longCountry->getOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_official_name_from_shortlist()
     {
         $this->assertEquals($this->shortAttributes['official_name'], $this->shortCountry->getOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_official_name()
     {
         $this->shortCountry->setAttributes([]);
@@ -266,19 +304,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->shortCountry->getOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_native_name_from_longlist()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara']['common'], $this->longCountry->getNativeName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_native_name_from_shortlist()
     {
         $this->assertEquals($this->shortAttributes['native_name'], $this->shortCountry->getNativeName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_native_name()
     {
         $this->shortCountry->setAttributes([]);
@@ -286,19 +330,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->shortCountry->getNativeName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_native_official_name_from_longlist()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara']['official'], $this->longCountry->getNativeOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_native_official_name_from_shortlist()
     {
         $this->assertEquals($this->shortAttributes['native_official_name'], $this->shortCountry->getNativeOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_native_official_name()
     {
         $this->shortCountry->setAttributes([]);
@@ -306,14 +356,18 @@ class CountryTest extends TestCase
         $this->assertNull($this->shortCountry->getNativeOfficialName());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_array_of_native_names_from_longlist()
     {
         $this->assertNotEmpty($this->longCountry->getNativeNames());
         $this->assertEquals(current($this->longAttributes['name']['native']), current($this->longCountry->getNativeNames()));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_native_names()
     {
         $this->shortCountry->setAttributes([]);
@@ -321,13 +375,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->shortCountry->getNativeNames());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_demonym()
     {
         $this->assertEquals($this->longAttributes['demonym'], $this->longCountry->getDemonym());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_demonym()
     {
         $this->longCountry->setAttributes([]);
@@ -335,13 +393,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getDemonym());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_capital()
     {
         $this->assertEquals($this->longAttributes['capital'], $this->longCountry->getCapital());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_capital()
     {
         $this->longCountry->setAttributes([]);
@@ -349,13 +411,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCapital());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_isoalpha2()
     {
         $this->assertEquals($this->longAttributes['iso_3166_1_alpha2'], $this->longCountry->getIsoAlpha2());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_isoalpha2()
     {
         $this->longCountry->setAttributes([]);
@@ -363,13 +429,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getIsoAlpha2());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_isoalpha3()
     {
         $this->assertEquals($this->longAttributes['iso_3166_1_alpha3'], $this->longCountry->getIsoAlpha3());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_isoalpha3()
     {
         $this->longCountry->setAttributes([]);
@@ -377,13 +447,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getIsoAlpha3());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_isonumeric()
     {
         $this->assertEquals($this->longAttributes['iso_3166_1_numeric'], $this->longCountry->getIsoNumeric());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_isonumeric()
     {
         $this->longCountry->setAttributes([]);
@@ -391,19 +465,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getIsoNumeric());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_currency()
     {
         $this->assertEquals($this->longAttributes['currency']['EGP'], $this->longCountry->getCurrency());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_first_currency_when_missing_requested_currency()
     {
         $this->assertEquals($this->longAttributes['currency']['EGP'], $this->longCountry->getCurrency('USD'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_currency()
     {
         $this->longCountry->setAttributes([]);
@@ -411,13 +491,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCurrency());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_currencies()
     {
         $this->assertEquals($this->longAttributes['currency'], $this->longCountry->getCurrencies());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_currencies()
     {
         $this->longCountry->setAttributes([]);
@@ -425,13 +509,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCurrencies());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_tld()
     {
         $this->assertEquals(current($this->longAttributes['tld']), $this->longCountry->getTld());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_tld()
     {
         $this->longCountry->setAttributes([]);
@@ -439,13 +527,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getTld());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_tlds()
     {
         $this->assertEquals($this->longAttributes['tld'], $this->longCountry->getTlds());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_tlds()
     {
         $this->longCountry->setAttributes([]);
@@ -453,13 +545,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getTlds());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_altspellings()
     {
         $this->assertEquals($this->longAttributes['alt_spellings'], $this->longCountry->getAltSpellings());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_altspellings()
     {
         $this->longCountry->setAttributes([]);
@@ -467,19 +563,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getAltSpellings());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_language()
     {
         $this->assertEquals($this->longAttributes['languages']['ara'], $this->longCountry->getLanguage());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_first_currency_when_missing_requested_language()
     {
         $this->assertEquals($this->longAttributes['languages']['ara'], $this->longCountry->getLanguage('eng'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_language()
     {
         $this->longCountry->setAttributes([]);
@@ -487,13 +589,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLanguage());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_languages()
     {
         $this->assertEquals($this->longAttributes['languages'], $this->longCountry->getLanguages());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_languages()
     {
         $this->longCountry->setAttributes([]);
@@ -501,37 +607,49 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLanguages());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_translation()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara'], $this->longCountry->getTranslation());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_first_translation_when_missing_requested_translation()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara'], $this->longCountry->getTranslation('ara'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_translations()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara'], $this->longCountry->getTranslations()['ara']);
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_first_translation_when_missing_requested_translations()
     {
         $this->assertEquals($this->longAttributes['name']['native']['ara'], $this->longCountry->getTranslation('ara'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_geodata()
     {
         $this->assertEquals($this->longAttributes['geo'], $this->longCountry->getGeodata());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_geodata()
     {
         $this->longCountry->setAttributes([]);
@@ -539,13 +657,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getGeodata());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_continent()
     {
         $this->assertEquals(current($this->longAttributes['geo']['continent']), $this->longCountry->getContinent());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_continent()
     {
         $this->longCountry->setAttributes([]);
@@ -553,13 +675,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getContinent());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_postal_code()
     {
         $this->assertEquals($this->longAttributes['geo']['postal_code'], $this->longCountry->usesPostalCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_postal_code()
     {
         $this->longCountry->setAttributes([]);
@@ -567,13 +693,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->usesPostalCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_latitude()
     {
         $this->assertEquals($this->longAttributes['geo']['latitude'], $this->longCountry->getLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_latitude()
     {
         $this->longCountry->setAttributes([]);
@@ -581,13 +711,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_latitude_desc()
     {
         $this->assertEquals($this->longAttributes['geo']['latitude_desc'], $this->longCountry->getLatitudeDesc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_latitude_desc()
     {
         $this->longCountry->setAttributes([]);
@@ -595,13 +729,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLatitudeDesc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_max_latitude()
     {
         $this->assertEquals($this->longAttributes['geo']['max_latitude'], $this->longCountry->getMaxLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_lmax_latitude()
     {
         $this->longCountry->setAttributes([]);
@@ -609,13 +747,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getMaxLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_longitude()
     {
         $this->assertEquals($this->longAttributes['geo']['longitude'], $this->longCountry->getLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_longitude()
     {
         $this->longCountry->setAttributes([]);
@@ -623,13 +765,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_longitude_desc()
     {
         $this->assertEquals($this->longAttributes['geo']['longitude_desc'], $this->longCountry->getLongitudeDesc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_longitude_desc()
     {
         $this->longCountry->setAttributes([]);
@@ -637,13 +783,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getLongitudeDesc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_max_longitude()
     {
         $this->assertEquals($this->longAttributes['geo']['max_longitude'], $this->longCountry->getMaxLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_max_longitude()
     {
         $this->longCountry->setAttributes([]);
@@ -651,13 +801,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getMaxLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_min_longitude()
     {
         $this->assertEquals($this->longAttributes['geo']['min_longitude'], $this->longCountry->getMinLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_min_longitude()
     {
         $this->longCountry->setAttributes([]);
@@ -665,13 +819,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getMinLongitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_min_latitude()
     {
         $this->assertEquals($this->longAttributes['geo']['min_latitude'], $this->longCountry->getMinLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_min_latitude()
     {
         $this->longCountry->setAttributes([]);
@@ -679,13 +837,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getMinLatitude());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_area()
     {
         $this->assertEquals($this->longAttributes['geo']['area'], $this->longCountry->getArea());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_area()
     {
         $this->longCountry->setAttributes([]);
@@ -693,13 +855,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getArea());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_region()
     {
         $this->assertEquals($this->longAttributes['geo']['region'], $this->longCountry->getRegion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_region()
     {
         $this->longCountry->setAttributes([]);
@@ -707,13 +873,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getRegion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_subregion()
     {
         $this->assertEquals($this->longAttributes['geo']['subregion'], $this->longCountry->getSubregion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_subregion()
     {
         $this->longCountry->setAttributes([]);
@@ -721,13 +891,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getSubregion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_world_region()
     {
         $this->assertEquals($this->longAttributes['geo']['world_region'], $this->longCountry->getWorldRegion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_world_region()
     {
         $this->longCountry->setAttributes([]);
@@ -735,13 +909,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getWorldRegion());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_region_code()
     {
         $this->assertEquals($this->longAttributes['geo']['region_code'], $this->longCountry->getRegionCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_region_code()
     {
         $this->longCountry->setAttributes([]);
@@ -749,13 +927,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getRegionCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_subregion_code()
     {
         $this->assertEquals($this->longAttributes['geo']['subregion_code'], $this->longCountry->getSubregionCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_subregion_code()
     {
         $this->longCountry->setAttributes([]);
@@ -763,13 +945,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getSubregionCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_landlocked_status()
     {
         $this->assertEquals($this->longAttributes['geo']['landlocked'], $this->longCountry->isLandlocked());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_landlocked_status()
     {
         $this->longCountry->setAttributes([]);
@@ -777,13 +963,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->isLandlocked());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_borders()
     {
         $this->assertEquals($this->longAttributes['geo']['borders'], $this->longCountry->getBorders());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_borders()
     {
         $this->longCountry->setAttributes([]);
@@ -791,13 +981,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getBorders());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_independent_status()
     {
         $this->assertEquals($this->longAttributes['geo']['independent'], $this->longCountry->isIndependent());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_independent_status()
     {
         $this->longCountry->setAttributes([]);
@@ -805,19 +999,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->isIndependent());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_calling_code_from_longlist()
     {
         $this->assertEquals(current($this->longAttributes['dialling']['calling_code']), $this->longCountry->getCallingCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_calling_code_from_shortlist()
     {
         $this->assertEquals(current($this->shortAttributes['calling_code']), $this->shortCountry->getCallingCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_calling_code()
     {
         $this->longCountry->setAttributes([]);
@@ -825,13 +1025,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCallingCode());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_calling_codes()
     {
         $this->assertEquals($this->longAttributes['dialling']['calling_code'], $this->longCountry->getCallingCodes());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_calling_codes()
     {
         $this->longCountry->setAttributes([]);
@@ -839,13 +1043,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCallingCodes());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_national_prefix()
     {
         $this->assertEquals($this->longAttributes['dialling']['national_prefix'], $this->longCountry->getNationalPrefix());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_national_prefix()
     {
         $this->longCountry->setAttributes([]);
@@ -853,13 +1061,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getNationalPrefix());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_national_number_length()
     {
         $this->assertEquals(current($this->longAttributes['dialling']['national_number_lengths']), $this->longCountry->getNationalNumberLength());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_national_number_length()
     {
         $this->longCountry->setAttributes([]);
@@ -867,13 +1079,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getNationalNumberLength());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_national_number_lengths()
     {
         $this->assertEquals($this->longAttributes['dialling']['national_number_lengths'], $this->longCountry->getNationalNumberLengths());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_national_number_lengths()
     {
         $this->longCountry->setAttributes([]);
@@ -881,13 +1097,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getNationalNumberLengths());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_national_destination_code_length()
     {
         $this->assertEquals(current($this->longAttributes['dialling']['national_destination_code_lengths']), $this->longCountry->getNationalDestinationCodeLength());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_national_destination_code_length()
     {
         $this->longCountry->setAttributes([]);
@@ -895,13 +1115,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getNationalDestinationCodeLength());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_national_destination_code_lengths()
     {
         $this->assertEquals($this->longAttributes['dialling']['national_destination_code_lengths'], $this->longCountry->getNationalDestinationCodeLengths());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_national_destination_code_lengths()
     {
         $this->longCountry->setAttributes([]);
@@ -909,13 +1133,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getNationalDestinationCodeLengths());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_international_prefix()
     {
         $this->assertEquals($this->longAttributes['dialling']['international_prefix'], $this->longCountry->getInternationalPrefix());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_international_prefix()
     {
         $this->longCountry->setAttributes([]);
@@ -923,13 +1151,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getInternationalPrefix());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_extra()
     {
         $this->assertEquals($this->longAttributes['extra'], $this->longCountry->getExtra());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_extra()
     {
         $this->longCountry->setAttributes([]);
@@ -937,13 +1169,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getExtra());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_geonameid()
     {
         $this->assertEquals($this->longAttributes['extra']['geonameid'], $this->longCountry->getGeonameid());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_geonameid()
     {
         $this->longCountry->setAttributes([]);
@@ -951,13 +1187,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getGeonameid());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_edgar()
     {
         $this->assertEquals($this->longAttributes['extra']['edgar'], $this->longCountry->getEdgar());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_edgar()
     {
         $this->longCountry->setAttributes([]);
@@ -965,13 +1205,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getEdgar());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_itu()
     {
         $this->assertEquals($this->longAttributes['extra']['itu'], $this->longCountry->getItu());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_itu()
     {
         $this->longCountry->setAttributes([]);
@@ -979,13 +1223,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getItu());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_marc()
     {
         $this->assertEquals($this->longAttributes['extra']['marc'], $this->longCountry->getMarc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_marc()
     {
         $this->longCountry->setAttributes([]);
@@ -993,13 +1241,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getMarc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_wmo()
     {
         $this->assertEquals($this->longAttributes['extra']['wmo'], $this->longCountry->getWmo());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_wmo()
     {
         $this->longCountry->setAttributes([]);
@@ -1007,13 +1259,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getWmo());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_ds()
     {
         $this->assertEquals($this->longAttributes['extra']['ds'], $this->longCountry->getDs());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_ds()
     {
         $this->longCountry->setAttributes([]);
@@ -1021,13 +1277,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getDs());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_fifa()
     {
         $this->assertEquals($this->longAttributes['extra']['fifa'], $this->longCountry->getFifa());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_fifa()
     {
         $this->longCountry->setAttributes([]);
@@ -1035,13 +1295,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getFifa());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_fips()
     {
         $this->assertEquals($this->longAttributes['extra']['fips'], $this->longCountry->getFips());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_fips()
     {
         $this->longCountry->setAttributes([]);
@@ -1049,13 +1313,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getFips());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_gaul()
     {
         $this->assertEquals($this->longAttributes['extra']['gaul'], $this->longCountry->getGaul());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_gaul()
     {
         $this->longCountry->setAttributes([]);
@@ -1063,13 +1331,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getGaul());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_ioc()
     {
         $this->assertEquals($this->longAttributes['extra']['ioc'], $this->longCountry->getIoc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_ioc()
     {
         $this->longCountry->setAttributes([]);
@@ -1077,13 +1349,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getIoc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_cowc()
     {
         $this->assertEquals($this->longAttributes['extra']['cowc'], $this->longCountry->getCowc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_cowc()
     {
         $this->longCountry->setAttributes([]);
@@ -1091,13 +1367,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCowc());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_cown()
     {
         $this->assertEquals($this->longAttributes['extra']['cown'], $this->longCountry->getCown());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_cown()
     {
         $this->longCountry->setAttributes([]);
@@ -1105,13 +1385,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getCown());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_fao()
     {
         $this->assertEquals($this->longAttributes['extra']['fao'], $this->longCountry->getFao());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_fao()
     {
         $this->longCountry->setAttributes([]);
@@ -1119,13 +1403,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getFao());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_imf()
     {
         $this->assertEquals($this->longAttributes['extra']['imf'], $this->longCountry->getImf());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_imf()
     {
         $this->longCountry->setAttributes([]);
@@ -1133,13 +1421,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getImf());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_ar5()
     {
         $this->assertEquals($this->longAttributes['extra']['ar5'], $this->longCountry->getAr5());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_ar5()
     {
         $this->longCountry->setAttributes([]);
@@ -1147,13 +1439,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getAr5());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_address_format()
     {
         $this->assertEquals($this->longAttributes['extra']['address_format'], $this->longCountry->getAddressFormat());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_address_format()
     {
         $this->longCountry->setAttributes([]);
@@ -1161,13 +1457,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getAddressFormat());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_whether_eu_member()
     {
         $this->assertEquals($this->longAttributes['extra']['eu_member'], $this->longCountry->isEuMember());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_eu_member_status()
     {
         $this->longCountry->setAttributes([]);
@@ -1175,13 +1475,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->isEuMember());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_vat_rates()
     {
         $this->assertEquals($this->longAttributes['extra']['vat_rates'], $this->longCountry->getVatRates());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_vat_rates()
     {
         $this->longCountry->setAttributes([]);
@@ -1189,19 +1493,25 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getVatRates());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_emoji_from_longlist()
     {
         $this->assertEquals($this->longAttributes['extra']['emoji'], $this->longCountry->getEmoji());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_emoji_from_shortlist()
     {
         $this->assertEquals($this->shortAttributes['emoji'], $this->shortCountry->getEmoji());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_emoji()
     {
         $this->longCountry->setAttributes([]);
@@ -1209,7 +1519,9 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getEmoji());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_geojson()
     {
         $file = __DIR__.'/../resources/geodata/'.mb_strtolower($this->longCountry->getIsoAlpha2()).'.json';
@@ -1217,7 +1529,9 @@ class CountryTest extends TestCase
         $this->assertEquals(file_get_contents($file), $this->longCountry->getGeoJson());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_geojson()
     {
         $this->longCountry->setAttributes([]);
@@ -1225,7 +1539,9 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getGeoJson());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_flag()
     {
         $file = __DIR__.'/../resources/flags/'.mb_strtolower($this->longCountry->getIsoAlpha2()).'.svg';
@@ -1233,7 +1549,9 @@ class CountryTest extends TestCase
         $this->assertEquals(file_get_contents($file), $this->longCountry->getFlag());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_flag()
     {
         $this->longCountry->setAttributes([]);
@@ -1241,7 +1559,9 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getFlag());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_divisions()
     {
         $file = __DIR__.'/../resources/divisions/'.mb_strtolower($this->longCountry->getIsoAlpha2()).'.json';
@@ -1249,7 +1569,9 @@ class CountryTest extends TestCase
         $this->assertEquals(json_decode(file_get_contents($file), true), $this->longCountry->getDivisions());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_divisions()
     {
         $this->longCountry->setAttributes([]);
@@ -1257,13 +1579,17 @@ class CountryTest extends TestCase
         $this->assertNull($this->longCountry->getDivisions());
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_division()
     {
         $this->assertEquals($this->longAttributes['divisions']['ALX'], $this->longCountry->getDivision('ALX'));
     }
 
-    /** @test */
+    /**
+     * @test 
+     */
     public function it_returns_null_when_missing_division()
     {
         $this->longCountry->setAttributes([]);
