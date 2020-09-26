@@ -11,8 +11,10 @@ class CountryServiceProvider extends ServiceProvider
 {
     /**
      * {@inheritdoc}
+     *
+     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // Add country validation rule
         Validator::extend(

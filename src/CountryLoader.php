@@ -58,38 +58,17 @@ class CountryLoader
     }
 
     /**
-     * Filter items by the given key value pair.
-     *
-     * @param string $key
-     * @param mixed  $operator
-     * @param mixed  $value
-     *
-     * @return array
-     */
-    public static function where($key, $operator, $value = null)
-    {
-        if (func_num_args() === 2) {
-            $value = $operator;
-            $operator = '=';
-        }
-
-        if (! isset(static::$countries['longlist'])) {
-            static::$countries['longlist'] = json_decode(static::getFile(__DIR__.'/../resources/data/longlist.json'), true);
-        }
-
-        return static::filter(static::$countries['longlist'], static::operatorForWhere($key, $operator, $value));
-    }
-
-    /**
      * Get an operator checker callback.
      *
      * @param string $key
      * @param string $operator
      * @param mixed  $value
      *
-     * @return \Closure
+     * @return Closure
+     *
+     * @psalm-return Closure(mixed):bool
      */
-    protected static function operatorForWhere($key, $operator, $value)
+    protected static function operatorForWhere($key, $operator, $value): Closure
     {
         return function ($item) use ($key, $operator, $value) {
             $retrieved = static::get($item, $key);
