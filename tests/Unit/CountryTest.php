@@ -30,7 +30,7 @@ class CountryTest extends TestCase
      */
     protected $longCountry;
 
-    protected function setUp(): void: void
+    protected function setUp(): void
     {
         parent::setUp();
 
